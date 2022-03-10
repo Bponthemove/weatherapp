@@ -1,0 +1,33 @@
+{
+  "name": "weatherapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@netlify/functions": "^1.0.0",
+    "@types/leaflet": "^1.7.9",
+    "axios": "^0.26.1",
+    "chartist": "^0.11.4",
+    "leaflet": "^1.7.1",
+    "leaflet-fullscreen": "^1.0.2",
+    "leaflet-openweathermap": "^1.0.0",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-chartist": "^0.14.4",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-leaflet": "^3.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.40",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
+    "typescript": "^4.6.2"
+  }
+}

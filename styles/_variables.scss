@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+@import "../styles/_chartist-settings.scss";
+@import "../node_modules/chartist/dist/scss/chartist.scss";
+// @import "../node_modules/leaflet/dist/leaflet.css";
+
+$color-white: #FFFFFF;
+$color-grey: #F5F4F4;
+$color-lightblack: #333533;
+$color-black: #242423;
+$color-blue: #00b4d8;
+
+$themes: (
+  sun: (
+    fontOne: #F5F4F4,
+    fontOneActive: #242423,
+    backgroundImg: url('/sun.jpg'),
+    backgroundBlend: darken
+  ),
+  rain: (
+    fontOne: #000000,
+    fontOneActive: #02c6ed,
+    backgroundImg: url('/rain.jpg'),
+    backgroundBlend: lighten
+  )
+);
+
+@mixin on-hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin theme($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .theme-#{$theme-name} & {
+      #{$key}: map-get(map-get($themes, $theme-name), $color)
+    }
+  }
+}
+
+@mixin breakpoint($point) {
+    @if $point == notmobile {
+      @media (min-width: 35em)  { @content ; }
+    }
+    @else if $point == mobileonly {
+      @media (max-width: 35em)  { @content ; }
+   }
+ }

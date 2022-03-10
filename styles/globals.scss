@@ -1,0 +1,389 @@
+@import './_variables.scss';
+
+html,
+body {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+    
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    @include theme('color', 'fontOne');
+}
+
+#__next{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.2);
+    @include theme('background-image', 'backgroundImg');
+    @include theme('background-blend-mode', 'backgroundBlend');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    @include breakpoint(notmobile){
+        padding: 0.8em;
+        display: flex;
+        flex-direction: row-reverse;
+        flex-direction: column;
+        margin: 2em auto;
+        max-width: 600px;
+        height: 90vh;
+    }
+
+//-----------------------------header--------------------------------------//
+    header{
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+        width: 60%;
+        margin-top: auto;
+        
+        @include breakpoint(notmobile){
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            padding: 1em 0;
+            margin: 0;
+            width: 100%;
+            height: auto;
+        }
+//sun/rain theme switch    --still needs to be adjusted so that button is on top but container is not    
+        .theme-container{
+            font-size: 3em;
+            text-align: end;
+            position: relative;
+            z-index: 9999;              
+            transform: translate(-5% ,80%);
+            
+            @include breakpoint(notmobile){
+                flex: 1;
+                justify-content: center;
+                font-size: 2em;   
+                transform: none;
+            }
+            
+            div{
+                padding: 0 0.6em;
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+    
+        nav{
+            display: grid;
+            justify-items: end;
+            align-items: flex-end;
+            font-size: 1.2em;
+            padding: 1em 2em 1em 0;
+            min-height: 12em;
+        
+            
+            @include breakpoint(notmobile){
+                flex: 1.5;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 1em;
+                padding: 0 1.5rem;
+                transform: none;
+                min-height: auto;
+            }
+
+            div{
+                border-bottom: 2px solid transparent;
+                transition: border 0.2s linear, color 0.2s linear;
+                z-index: -1;
+                
+                @include breakpoint(notmobile){
+                    z-index: 0;
+                }
+            }
+            
+            div.active{
+                border-bottom-width: 2px;
+                border-bottom-style: solid;
+                @include theme('border-bottom-color', 'fontOne');
+                z-index: 1;
+            }
+
+            #open{
+                z-index: 1;
+            }
+
+            #close{
+                grid-area: 1/1;
+            }
+        }
+//--open/close menu button and cirkels--//
+        .menu-toggle-Four{
+            position: absolute;
+            right: -4em;
+            bottom: 12em;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            
+            @include breakpoint(notmobile){
+                display: none;
+            }
+        }
+
+        .menu-toggle-Three{
+            margin: 1em;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            transform: translate(25%, 20%);
+        }
+
+        .menu-toggle-Two{
+            margin: 1em;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            transform: translate(28%, 28%);
+        }
+
+        .menu-toggle-One{
+            z-index: 999;
+            margin: 1em;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transform: translate(60%, 120%);
+            border: 10px solid;
+        }
+
+        .clicked-Four{
+            animation: 0.2s menu 0.2s linear;
+        }
+
+        .clicked-Three{
+            animation: 0.2s menu 0.1s linear;
+        }
+
+        .clicked-Two{
+            animation: 0.2s menu 0s linear;
+        }
+    }
+
+    main{
+        width: 100%;
+        height: 100%;
+        
+        @include breakpoint(notmobile){
+            position: relative;
+            left: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+//-----------------------------main-home--------------------------------------//
+        .location{
+            font-size: 1em;
+        }
+        
+//-----------------------------main-home-top-container--------------------------------------//
+        .current-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2em;
+            padding: 1rem 0;
+            
+            @include breakpoint(notmobile){
+                padding: 0 1rem;
+            }
+
+            .temp{
+                font-size: 5em;
+            }
+        }
+//-----------------------------main-home-bottom-container--------------------------------------//
+        .outlook-container{
+            width: 75%;
+            height: 20em;
+            padding-left: 0.8em;
+            display: flex;
+            align-items: center;
+            
+            @include breakpoint (notmobile){
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            & > svg{
+                display: none;
+
+                @include breakpoint (notmobile){
+                    display: block;
+                    margin: 0 2em;
+                    height: 3em;
+                    width: 3em;
+                    cursor: pointer;
+                }
+            }
+            
+            .outlook-container-inner{
+                height: 100%;
+                width: 100%;
+                overflow-x: scroll;
+                
+                .outlook-list{
+                    display: flex;
+                    // align-items: flex-start;
+                    list-style: none;
+                    height: 100%;
+                    
+                    @include breakpoint(notmobile){
+                        
+                    }
+                    
+                    li{
+                        padding: 0.2em 0;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        position: relative;
+
+                        .daytime-container{
+                            padding: 0 0.5em 0.5em;
+                            border-bottom: 0.5px solid;
+                        }
+
+                        .temp-box{
+                            // flex: 6;
+                            position: relative;
+                            //needs to have flexible position according to temperature
+
+                            .temp{
+                                padding-bottom: 1em;
+                            }
+                        }
+
+                        .wind-box{
+                            padding: 0.5em 1em 0;
+                            border-top: 0.5px solid;
+                        }
+                    }
+                }
+            }
+        }
+//-----------------------------main-air--------------------------------------//
+
+        .air-h1{
+            text-align: left;
+            padding-top: 2em;
+
+            @include breakpoint(notmobile){
+                padding-top: 1em;
+                text-align: center;
+            }
+        }
+
+        .air-h2{
+            margin-top: 1em;
+            text-align: left;
+
+            @include breakpoint(notmobile){
+                text-align: center;
+            }
+        }
+
+        .air-section{
+            margin-top: 2em;
+            width: 75%;
+            text-align: left;
+
+            @include breakpoint(notmobile){
+                margin-top: 4em;
+                transform: none;
+                width: 100%;
+            }
+
+            .ct-series-b > .ct-bar{
+                stroke: #f4c63d;
+            }
+
+            .ct-series-c > .ct-bar{
+                stroke: #69db5a;
+            }
+
+            .ct-series-d > .ct-bar{
+                stroke: $color-black;
+            }
+
+            .ct-label {
+
+               @include breakpoint (notmobile){
+                   font-size: 1.2em;
+               }
+            }
+    
+            line.ct-bar {
+                fill: white;
+                stroke-width: 8px;
+
+                @include breakpoint (notmobile){
+                    stroke-width: 20px;
+                }
+            }
+        }
+    }
+
+//-----------------------------maps--------------------------------------//
+    #map{
+        padding: 1rem ;
+        height: 80%;
+        width: 80%;
+        
+        @include breakpoint (notmobile){
+            width: 80%;
+            height: 90%;
+            margin: 0 auto;
+        }
+        
+        & span{
+            color: $color-black;            
+        }
+    }
+
+
+//-----------------------------footer--------------------------------------//
+    footer{
+        margin-top: auto;
+        font-size: 0.6em;
+        
+        @include breakpoint(notmobile){        
+            margin-bottom: 0;
+        }
+    }
+}
+
+@keyframes menu{
+    0%      { outline: 0px solid; }
+    50%     { outline: 4px solid; }
+    100%    { outline: 0px solid; }
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
