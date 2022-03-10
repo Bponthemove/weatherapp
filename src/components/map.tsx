@@ -9,8 +9,9 @@ import 'leaflet-fullscreen/dist/leaflet.fullscreen.css'
 
 // overwriting to have correct src path , issue with webpack and leaflet
 // maybe possible with markerRef??
+// for now disable it to be able to deploy it 
 
-L.Icon.Default.prototype.constructor.imagePath = "/"
+// L.Icon.Default.prototype.constructor.imagePath = "/"
 
 L.Icon.Default.mergeOptions({
     iconUrl: 'marker-icon.png',
