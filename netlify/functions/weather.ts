@@ -2,8 +2,8 @@ import { Handler } from "@netlify/functions";
 import axios from 'axios'
 
 export const handler: Handler = async (event) => {
-   
-    const { lat, long }: { lat: number, long: number} = event.queryStringParameters
+    
+    const { lat, long } = event.queryStringParameters
     const API_KEY = process.env.API_KEY
     let allData= []
     
