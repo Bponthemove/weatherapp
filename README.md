@@ -12,3 +12,4 @@ Tabs:
 
 Still to do
  - finish off maps. Need lambda functions for weather layers to hide api key. Also fix typescript errors. 
+ - adjust responsiveness for laptops.
