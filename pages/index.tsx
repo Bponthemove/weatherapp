@@ -9,6 +9,8 @@ export default function Home() {
   const { dataToday, locationName, dataOutlook } = useContext(WeatherContext)
   const scrollContainerRef = useRef(null)
   const [scroll, setScroll] = useState<string>('')
+  const [scrollEnd, setScrollEnd] = useState<string>('start')
+
   //calculate min and max of range to set each partial at its correct height to visually show temperature fluctuations
   let minTemp: number
   let maxTemp: number
@@ -17,6 +19,9 @@ export default function Home() {
 
   useEffect(() => {
     if (scrollContainerRef.current && scroll !== '') {
+      console.log(scrollContainerRef.current.clientWidth)
+      console.log(scrollContainerRef.current.scrollWidth)
+      console.log(scrollContainerRef.current.scrollLeft)
       //don't use smooth scrolling behavior as it does not keep up with interval
       const scroller = setInterval(() => {
           if(scroll === 'right') scrollContainerRef.current.scrollBy(2, 0)
@@ -25,6 +30,14 @@ export default function Home() {
         return () => clearInterval(scroller)
       } 
   }, [scroll])
+
+  const onScroll = () => {
+    if (!scrollContainerRef.current) return
+    const { scrollLeft, scrollWidth, clientWidth} = scrollContainerRef.current
+    if (scrollLeft === 0) return setScrollEnd('start')
+    if (scrollLeft + clientWidth + 1 > scrollWidth) return setScrollEnd('end')
+    else return setScrollEnd('middle')
+  }
   
   return (
     <>
@@ -46,10 +59,14 @@ export default function Home() {
           </section>
           <section className='outlook-container'>
             <FaArrowAltCircleLeft
+              style={ scrollEnd === 'start' ? { 'fill' : 'red'} : { 'fill' : 'black'}}
               onMouseEnter={ () => setScroll('left') }
               onMouseLeave={ () => setScroll('') }
             />
-            <div className='outlook-container-inner' ref={ scrollContainerRef }>
+            <div  className='outlook-container-inner' 
+                  ref={ scrollContainerRef }
+                  onScroll={ () => onScroll()}
+            >
               {dataOutlook ? 
                 <ul className='outlook-list'>
                   { dataOutlook.map(partial => (
@@ -61,6 +78,7 @@ export default function Home() {
               }
             </div>
             <FaArrowAltCircleRight
+            style={ scrollEnd === 'end' ? { 'fill' : 'red'} : { 'fill' : 'black'}}
               onMouseEnter={ () => setScroll('right') }
               onMouseLeave={ () => setScroll('') }
             />

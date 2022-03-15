@@ -818,7 +818,7 @@ li {
   background-blend-mode: lighten;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next {
     padding: 0.8em;
     display: -webkit-box;
@@ -830,12 +830,12 @@ li {
             flex-direction: row-reverse;
     flex-direction: column;
     margin: 2em auto;
-    max-width: 600px;
-    height: 90vh;
+    max-width: 1000px;
+    height: 80vh;
   }
 }
 
-#__next header {
+#__next .header {
   position: absolute;
   right: 0px;
   bottom: 0;
@@ -843,8 +843,8 @@ li {
   margin-top: auto;
 }
 
-@media (min-width: 35em) {
-  #__next header {
+@media (min-width: 55em) {
+  #__next .header {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -863,7 +863,7 @@ li {
   }
 }
 
-#__next header .theme-container {
+#__next .header .theme-container {
   font-size: 3em;
   text-align: end;
   position: relative;
@@ -872,8 +872,8 @@ li {
           transform: translate(-5%, 80%);
 }
 
-@media (min-width: 35em) {
-  #__next header .theme-container {
+@media (min-width: 55em) {
+  #__next .header .theme-container {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -886,13 +886,13 @@ li {
   }
 }
 
-#__next header .theme-container div {
+#__next .header .theme-container div {
   padding: 0 0.6em;
   opacity: 1;
   cursor: pointer;
 }
 
-#__next header nav {
+#__next .header nav {
   display: -ms-grid;
   display: grid;
   justify-items: end;
@@ -904,8 +904,8 @@ li {
   min-height: 12em;
 }
 
-@media (min-width: 35em) {
-  #__next header nav {
+@media (min-width: 55em) {
+  #__next .header nav {
     -webkit-box-flex: 1.5;
         -ms-flex: 1.5;
             flex: 1.5;
@@ -927,44 +927,44 @@ li {
   }
 }
 
-#__next header nav div {
+#__next .header nav div {
   border-bottom: 2px solid transparent;
   -webkit-transition: border 0.2s linear, color 0.2s linear;
   transition: border 0.2s linear, color 0.2s linear;
   z-index: -1;
 }
 
-@media (min-width: 35em) {
-  #__next header nav div {
+@media (min-width: 55em) {
+  #__next .header nav div {
     z-index: 0;
   }
 }
 
-#__next header nav div.active {
+#__next .header nav div.active {
   border-bottom-width: 2px;
   border-bottom-style: solid;
   z-index: 1;
 }
 
-.theme-sun #__next header nav div.active {
+.theme-sun #__next .header nav div.active {
   border-bottom-color: #F5F4F4;
 }
 
-.theme-rain #__next header nav div.active {
+.theme-rain #__next .header nav div.active {
   border-bottom-color: #000000;
 }
 
-#__next header nav #open {
+#__next .header nav #open {
   z-index: 1;
 }
 
-#__next header nav #close {
+#__next .header nav #close {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: 1/1;
 }
 
-#__next header .menu-toggle-Four {
+#__next .header .menu-toggle-Four {
   position: absolute;
   right: -4em;
   bottom: 12em;
@@ -973,13 +973,13 @@ li {
   height: 300px;
 }
 
-@media (min-width: 35em) {
-  #__next header .menu-toggle-Four {
+@media (min-width: 55em) {
+  #__next .header .menu-toggle-Four {
     display: none;
   }
 }
 
-#__next header .menu-toggle-Three {
+#__next .header .menu-toggle-Three {
   margin: 1em;
   border-radius: 50%;
   width: 200px;
@@ -988,7 +988,7 @@ li {
           transform: translate(25%, 20%);
 }
 
-#__next header .menu-toggle-Two {
+#__next .header .menu-toggle-Two {
   margin: 1em;
   border-radius: 50%;
   width: 120px;
@@ -997,7 +997,7 @@ li {
           transform: translate(28%, 28%);
 }
 
-#__next header .menu-toggle-One {
+#__next .header .menu-toggle-One {
   z-index: 999;
   margin: 1em;
   width: 40px;
@@ -1008,17 +1008,17 @@ li {
   border: 10px solid;
 }
 
-#__next header .clicked-Four {
+#__next .header .clicked-Four {
   -webkit-animation: 0.2s menu 0.2s linear;
           animation: 0.2s menu 0.2s linear;
 }
 
-#__next header .clicked-Three {
+#__next .header .clicked-Three {
   -webkit-animation: 0.2s menu 0.1s linear;
           animation: 0.2s menu 0.1s linear;
 }
 
-#__next header .clicked-Two {
+#__next .header .clicked-Two {
   -webkit-animation: 0.2s menu 0s linear;
           animation: 0.2s menu 0s linear;
 }
@@ -1028,7 +1028,7 @@ li {
   height: 100%;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main {
     position: relative;
     left: auto;
@@ -1036,10 +1036,6 @@ li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
   }
 }
 
@@ -1062,7 +1058,7 @@ li {
   padding: 1rem 0;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .current-container {
     padding: 0 1rem;
   }
@@ -1084,10 +1080,9 @@ li {
           align-items: center;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .outlook-container {
     margin: 0 auto;
-    width: 100%;
   }
 }
 
@@ -1095,7 +1090,7 @@ li {
   display: none;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .outlook-container > svg {
     display: block;
     margin: 0 2em;
@@ -1156,9 +1151,10 @@ li {
 #__next main .air-h1 {
   text-align: left;
   padding-top: 2em;
+  margin-left: 0.5em;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .air-h1 {
     padding-top: 1em;
     text-align: center;
@@ -1168,9 +1164,10 @@ li {
 #__next main .air-h2 {
   margin-top: 1em;
   text-align: left;
+  margin-left: 0.5em;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .air-h2 {
     text-align: center;
   }
@@ -1178,16 +1175,20 @@ li {
 
 #__next main .air-section {
   margin-top: 2em;
+  margin-left: 0.5em;
   width: 75%;
   text-align: left;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .air-section {
-    margin-top: 4em;
+    margin-top: 0;
+    margin-left: auto;
     -webkit-transform: none;
             transform: none;
-    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -1203,7 +1204,7 @@ li {
   stroke: #242423;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .air-section .ct-label {
     font-size: 1.2em;
   }
@@ -1214,7 +1215,7 @@ li {
   stroke-width: 8px;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next main .air-section line.ct-bar {
     stroke-width: 20px;
   }
@@ -1226,7 +1227,7 @@ li {
   width: 80%;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next #map {
     width: 80%;
     height: 90%;
@@ -1243,7 +1244,7 @@ li {
   font-size: 0.6em;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 55em) {
   #__next footer {
     margin-bottom: 0;
   }

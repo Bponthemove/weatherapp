@@ -42,9 +42,9 @@ $themes: (
 
 @mixin breakpoint($point) {
     @if $point == notmobile {
-      @media (min-width: 35em)  { @content ; }
+      @media (min-width: 55em)  { @content ; }
     }
     @else if $point == mobileonly {
-      @media (max-width: 35em)  { @content ; }
+      @media (max-width: 55em)  { @content ; }
    }
  }

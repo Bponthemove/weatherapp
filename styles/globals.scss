@@ -41,12 +41,12 @@ li {
         flex-direction: row-reverse;
         flex-direction: column;
         margin: 2em auto;
-        max-width: 600px;
-        height: 90vh;
+        max-width: 1000px;
+        height: 80vh;
     }
 
 //-----------------------------header--------------------------------------//
-    header{
+    .header{
         position: absolute;
         right: 0px;
         bottom: 0;
@@ -192,7 +192,7 @@ li {
             left: auto;
             width: 100%;
             display: flex;
-            flex-direction: column;
+            // flex-direction: column;
         }
         
 //-----------------------------main-home--------------------------------------//
@@ -226,7 +226,7 @@ li {
             
             @include breakpoint (notmobile){
                 margin: 0 auto;
-                width: 100%;
+                // width: 100%;
             }
 
             & > svg{
@@ -292,6 +292,7 @@ li {
         .air-h1{
             text-align: left;
             padding-top: 2em;
+            margin-left: 0.5em;
 
             @include breakpoint(notmobile){
                 padding-top: 1em;
@@ -302,6 +303,7 @@ li {
         .air-h2{
             margin-top: 1em;
             text-align: left;
+            margin-left: 0.5em;
 
             @include breakpoint(notmobile){
                 text-align: center;
@@ -310,13 +312,16 @@ li {
 
         .air-section{
             margin-top: 2em;
+            margin-left: 0.5em;
             width: 75%;
             text-align: left;
 
             @include breakpoint(notmobile){
-                margin-top: 4em;
+                margin-top: 0;
+                margin-left: auto;
                 transform: none;
-                width: 100%;
+                display: flex;
+                // width: 100%;
             }
 
             .ct-series-b > .ct-bar{

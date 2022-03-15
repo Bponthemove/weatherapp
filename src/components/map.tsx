@@ -11,7 +11,9 @@ import 'leaflet-fullscreen/dist/leaflet.fullscreen.css'
 // maybe possible with markerRef??
 // for now disable it to be able to deploy it 
 
-// L.Icon.Default.prototype.constructor.imagePath = "/"
+// let src = L.Icon.Default.prototype.constructor
+
+// src.imagePath = '/'
 
 L.Icon.Default.mergeOptions({
     iconUrl: 'marker-icon.png',

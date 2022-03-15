@@ -28,12 +28,14 @@ export default function Air() {
 
     return (
         <>
-            <h1 className="air-h1">Air Quality</h1>
-            <h2 className="air-h2">in {locationName ? ' ' + locationName.name : 'no location found'}</h2>
+            <header>
+                <h1 className="air-h1">Air Quality</h1>
+                <h2 className="air-h2">in {locationName ? ' ' + locationName.name : 'no location found'}</h2>
+            </header>
             <section className="air-section">
                 {dataAir && typeof window !== 'undefined' ? 
                     <ChartistGraph
-                        className={window.matchMedia('(max-width: 35em)').matches ? "ct-major-second" : "ct-minor-sixth" }
+                        className={window.matchMedia('(max-width: 50em)').matches ? "ct-major-second" : "ct-minor-sixth" }
                         type='Bar'
                         data={ data }
                         options={ options }
@@ -41,10 +43,12 @@ export default function Air() {
                     :
                     <p>no data</p>
                 }
-                <p><span style={{color: '#242423'}}>■</span>: current level</p>
-                <p><span style={{color: '#69db5a'}}>■</span>: Good</p>
-                <p><span style={{color: '#f4c63d'}}>■</span>: Satisfactory</p>
-                <p><span style={{color: '#d70206'}}>■</span>: Moderately polluted</p>
+                <legend>
+                    <p><span style={{color: '#242423'}}>■</span>: current level</p>
+                    <p><span style={{color: '#69db5a'}}>■</span>: Good</p>
+                    <p><span style={{color: '#f4c63d'}}>■</span>: Satisfactory</p>
+                    <p><span style={{color: '#d70206'}}>■</span>: Moderately polluted</p>
+                </legend>
             </section>
         </>
     )

@@ -19,7 +19,7 @@ export const Header = () => {
       }, [theme])
     
     return (
-        <header>
+        <header className='header'>
             <div className='theme-container'>
                 <div>
                     {
