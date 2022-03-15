@@ -37,11 +37,13 @@ export default function Map() {
     // }, [location])
 
     useEffect(() => {
-        if (map && home) {
-            setTimeout(() => {
-                map.flyTo(home, 13, {duration: 3})
-            }, 1000)
-        }
+        if (!map || !home) return
+        let fly: ReturnType<typeof setTimeout> = setTimeout(() => {
+            map.flyTo(home, 13, {duration: 3})
+        }, 1000)
+
+        return () => clearTimeout(fly)
+
     }, [map, home])
 
     return (

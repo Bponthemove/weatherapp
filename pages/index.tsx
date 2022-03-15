@@ -17,11 +17,9 @@ export default function Home() {
   if (dataOutlook) minTemp =  dataOutlook.reduce((min, current) => { return min < current.temp ? min : current.temp }, 0)
   if (dataOutlook) maxTemp =  dataOutlook.reduce((max, current) => { return max > current.temp ? max : current.temp }, 0)
 
+  //imitate smooth scrolling behaviour
   useEffect(() => {
     if (scrollContainerRef.current && scroll !== '') {
-      console.log(scrollContainerRef.current.clientWidth)
-      console.log(scrollContainerRef.current.scrollWidth)
-      console.log(scrollContainerRef.current.scrollLeft)
       //don't use smooth scrolling behavior as it does not keep up with interval
       const scroller = setInterval(() => {
           if(scroll === 'right') scrollContainerRef.current.scrollBy(2, 0)
@@ -31,6 +29,7 @@ export default function Home() {
       } 
   }, [scroll])
 
+  //find start and end of scroll to highlight button
   const onScroll = () => {
     if (!scrollContainerRef.current) return
     const { scrollLeft, scrollWidth, clientWidth} = scrollContainerRef.current
