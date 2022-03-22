@@ -4,8 +4,8 @@ import { FaLocationArrow } from 'react-icons/fa'
 
 export const Outlook = ({ partial, min ,max }) => {
     //The % range in that container to fit min and max comfortably
-    // offset = (prev range * current temp - adjustment) * amplitude
-    const offset = ((max - min) * partial.temp - 120) * 0.25
+    // offset = ((((temp / prev range) + min) * new range ) - (new range / 2)
+    const offset = ((((partial.temp / (max - min)) + min) * 40) - 20)
     
   return (
     <li>
