@@ -84,7 +84,7 @@ export default function Home() {
           </section>
         </>
           :
-          <p>can not connect, please refresh</p>
+          <p>loading...</p>
         }
       </>
     </>
